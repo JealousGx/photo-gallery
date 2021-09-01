@@ -1,4 +1,3 @@
-# Getting Started with Create React App
+# Personal Photo Gallery
 
-An initial application to get started with the react projects.
-Download the ZIP file or clone it...
+This is a personal photo gallery. You may use the code to help yourself in coding the website like this.
