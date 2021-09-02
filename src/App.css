@@ -1,5 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&display=swap");
 
+body {
+  background-color: #22272e;
+  color: #adbac7;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #22272e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 174, 255, 0.788);
+}
+
 .App {
   max-width: 960px;
   margin: 0 auto;
@@ -27,6 +41,44 @@ p {
   align-items: center;
 }
 
+form {
+  margin: 30px auto 0;
+  text-align: center;
+}
+label input {
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+label {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 174, 255, 0.788);
+  border-radius: 1%;
+  margin: 0px auto;
+  line-height: 30px;
+  color: rgba(0, 174, 255, 0.788);
+  font-weight: bold;
+  font-size: 24px;
+}
+label:hover {
+  background: rgba(0, 174, 255, 0.788);
+  color: #22272e;
+}
+
+.selectedFile {
+  height: 60px;
+  font-size: 0.8rem;
+}
+
+.progressbar {
+  margin: 30px auto 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+}
+
 .gallery {
   -webkit-column-count: 3;
   -moz-column-count: 3;
@@ -40,12 +92,12 @@ p {
   width: 100%;
   margin-bottom: 12px;
   cursor: pointer;
+  opacity: 0.9;
 }
 
 .gallery .imgs:hover {
   transition: all 350ms ease;
   transform: scale(1);
-  filter: opacity(0.9);
 }
 
 @media screen and (max-width: 991px) {
@@ -91,10 +143,21 @@ p {
   transform: scale(1);
 }
 
-.modal.open svg {
+.modal.open .closeIcon {
   position: fixed;
   top: 10px;
   right: 10px;
+  width: 2rem;
+  height: 2rem;
+  padding: 5px;
+  color: rgba(0, 174, 255, 0.788);
+  cursor: pointer;
+}
+
+.modal.open .deleteIcon {
+  position: fixed;
+  top: 10px;
+  right: 70px;
   width: 2rem;
   height: 2rem;
   padding: 5px;
@@ -112,4 +175,27 @@ p {
   box-sizing: border-box;
   padding: 20px 0 20px;
   margin: 0 auto;
+}
+
+.scrollTop {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255);
+  margin: 20px 960px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1080px) {
+  .scrollTop {
+    margin: 20px auto;
+  }
+}
+
+.scrollTop svg {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto;
+  color: rgba(0, 102, 255, 0.87);
+  background-color: #adbac7;
 }
