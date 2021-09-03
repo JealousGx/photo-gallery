@@ -10,7 +10,7 @@ function App() {
   };
   return (
     <div className="App">
-      <h1>JealGallery</h1>
+      <h1>jGallery</h1>
       <h2>Pictures & Videos</h2>
       {/* <p>Personal gallery for JealousGx</p> */}
       <Upload />
