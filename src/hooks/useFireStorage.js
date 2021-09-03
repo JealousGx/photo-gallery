@@ -20,7 +20,14 @@ const useFireStorage = (selectedFile) => {
       async () => {
         const downloadUrl = await storeRef.getDownloadURL();
         const createdAt = timestamp();
-        collectionRef.add({ url: downloadUrl, createdAt });
+        const file = await selectedFile.type;
+        const name = await selectedFile.name;
+        collectionRef.add({
+          url: downloadUrl,
+          createdAt,
+          fileType: file,
+          fileName: name,
+        });
         setUrl(downloadUrl);
       }
     );

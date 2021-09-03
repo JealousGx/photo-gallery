@@ -7,16 +7,16 @@ import "firebase/compat/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAq8Ol7tJs8CEl0LkjGl6F-q_gKc1d1Vwo",
+  apiKey: process.env.API_KEY,
   authDomain: "personal-gallery-55e21.firebaseapp.com",
   projectId: "personal-gallery-55e21",
   storageBucket: "personal-gallery-55e21.appspot.com",
-  messagingSenderId: "833566184638",
-  appId: "1:833566184638:web:fe89264cdb6370d230faef",
+  messagingSenderId: process.env.MESSAGING_ID,
+  appId: process.env.APP_ID,
 };
 
 // Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
 const gallStorage = firebase.storage();
 const gallFirestore = firebase.firestore();

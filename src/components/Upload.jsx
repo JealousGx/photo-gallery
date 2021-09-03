@@ -3,7 +3,6 @@ import Progress from "./Progress";
 
 const Upload = () => {
   const [chosenFiles, setChosenFiles] = useState(null);
-  const [chosenFile, setChosenFile] = useState(null);
 
   const fileTypes = [
     "image/jpeg",
