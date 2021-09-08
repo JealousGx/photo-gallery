@@ -19,9 +19,13 @@ const useFirestore = (collection) => {
     return () => detach();
   }, [collection]);
 
-  const deleteDoc = (docID, fileName) => {
+  const deleteDoc = (docID, fileName, isPrivate) => {
     gallFirestore.collection(collection).doc(docID).delete();
-    gallStorage.ref(fileName).delete();
+    if (isPrivate) {
+      gallStorage.ref(`/private/${fileName}`).delete();
+    } else {
+      gallStorage.ref(fileName).delete();
+    }
   };
 
   return { doc, deleteDoc };

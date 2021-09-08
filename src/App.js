@@ -10,11 +10,15 @@ function App() {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
   return (
     <div className="App">
-      <h1>jGallery</h1>
+      <div className="topBar">
+        <h1>jGallery</h1>
+      </div>
       <h2>Pictures & Videos</h2>
       {/* <p>Personal gallery for JealousGx</p> */}
+
       <Upload />
       {doc.length ? (
         <Gallery />

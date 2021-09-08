@@ -20,7 +20,12 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-h1 {
+.topBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.topBar h1 {
   font-family: "Dancing Script", cursive;
   font-size: 40px;
   color: rgba(0, 174, 255, 0.788);
@@ -45,26 +50,56 @@ form {
   margin: 30px auto 0;
   text-align: center;
 }
-label input {
+form label input {
   height: 0;
   width: 0;
   opacity: 0;
 }
-label {
+form label {
   display: block;
   width: 30px;
   height: 30px;
   border: 1px solid rgba(0, 174, 255, 0.788);
-  border-radius: 1%;
+  border-radius: 6%;
   margin: 0px auto;
   line-height: 30px;
   color: rgba(0, 174, 255, 0.788);
   font-weight: bold;
   font-size: 24px;
 }
-label:hover {
+form label:hover {
   background: rgba(0, 174, 255, 0.788);
   color: #22272e;
+}
+
+.privUpload {
+  display: inline-flex;
+}
+
+.privContainer {
+  padding-bottom: 14px;
+  padding-left: 8px;
+}
+
+.privContainer label {
+  text-decoration: none;
+  padding-right: 7px;
+}
+
+.privContainer select {
+  background-color: #22272e;
+  color: rgba(0, 174, 255, 0.788);
+  outline: none;
+  padding: 6px 3px;
+  border: none;
+  border: 1px solid rgba(0, 174, 255, 0.788);
+  border-radius: 6%;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.privContainer span {
+  font-size: 18px;
 }
 
 .selectedFile {
@@ -158,6 +193,17 @@ label:hover {
   position: fixed;
   top: 10px;
   right: 70px;
+  width: 2rem;
+  height: 2rem;
+  padding: 5px;
+  color: rgba(0, 174, 255, 0.788);
+  cursor: pointer;
+}
+
+.modal.open .downIcon {
+  position: fixed;
+  top: 10px;
+  right: 130px;
   width: 2rem;
   height: 2rem;
   padding: 5px;

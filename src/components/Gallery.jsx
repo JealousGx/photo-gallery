@@ -3,6 +3,7 @@ import useFirestore from "../hooks/useFirestore";
 import { motion } from "framer-motion";
 import { CloseRounded } from "@material-ui/icons";
 import DeleteIcon from "@material-ui/icons/Delete";
+import GetAppIcon from "@material-ui/icons/GetApp";
 
 const Gallery = () => {
   const [modal, setModal] = useState(false);
@@ -37,8 +38,8 @@ const Gallery = () => {
     }
   };
 
-  const deleteImg = (imgID, fileName) => {
-    deleteDoc(imgID, fileName);
+  const deleteImg = (imgID, fileName, isPrivate) => {
+    deleteDoc(imgID, fileName, isPrivate);
     setModal(false);
   };
 
@@ -49,6 +50,13 @@ const Gallery = () => {
       myVid.currentTime = 0;
     }
     setModal(false);
+  };
+
+  const downFile = (fileUrl, fileName) => {
+    var a = document.createElement("a");
+    a.setAttribute("href", fileUrl);
+    a.setAttribute("download", fileName);
+    a.click();
   };
 
   return (
@@ -67,11 +75,19 @@ const Gallery = () => {
             <source src={tempImg} type={tempPic.fileType} />
           </motion.video>
         )}
-        <CloseRounded className="closeIcon" onClick={closeModal} />
-        <DeleteIcon
-          className="deleteIcon"
-          onClick={() => deleteImg(tempPic.id, tempPic.fileName)}
-        />
+        <div className="modalBtns">
+          <CloseRounded className="closeIcon" onClick={closeModal} />
+          <DeleteIcon
+            className="deleteIcon"
+            onClick={() =>
+              deleteImg(tempPic.id, tempPic.fileName, tempPic.isPrivate)
+            }
+          />
+          <GetAppIcon
+            className="downIcon"
+            onClick={() => downFile(tempPic.url, tempPic.fileName)}
+          />
+        </div>
       </motion.div>
       <div className="gallery">
         {doc &&
@@ -84,6 +100,7 @@ const Gallery = () => {
                 key={id}
                 onClick={() => ImageHandler(item)}
               >
+                {/* {doc.filter((item) => item.isPrivate === false)} */}
                 {videoTypes.includes(item.fileType) && (
                   <motion.video width="100%" height="100%">
                     <source src={item.url} type={item.fileType} />

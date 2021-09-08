@@ -3,6 +3,7 @@ import Progress from "./Progress";
 
 const Upload = () => {
   const [chosenFiles, setChosenFiles] = useState(null);
+  const [isPriv, setIsPriv] = useState(false);
 
   const fileTypes = [
     "image/jpeg",
@@ -20,21 +21,59 @@ const Upload = () => {
   ];
   const handleChange = (e) => {
     e.preventDefault();
-    let chosen = e.target.files[0];
-    if (chosen && fileTypes.includes(chosen.type)) {
-      setChosenFiles(chosen);
+    let chosens = e.target.files;
+    var chosensList = []; // Variable to convert a file into an array
+    let files = []; // Variable to add the filtered files to an array
+    for (let i = 0; i < chosens.length; i++) {
+      chosensList.push(chosens[i]);
+    }
+    // Filtering the files
+    chosensList.map(
+      (item) => fileTypes.includes(item.type) && files.push(item)
+    );
+    if (chosensList) {
+      setChosenFiles(chosensList);
     }
   };
+  const privClick = (e) => {
+    e.preventDefault();
+    if (e.target.value === "yes") {
+      setIsPriv(true);
+    } else {
+      setIsPriv(false);
+    }
+  };
+
   return (
     <div>
       <form>
         {chosenFiles ? (
-          <Progress chosenFiles={chosenFiles} setChosenFiles={setChosenFiles} />
+          <Progress
+            chosenFiles={chosenFiles}
+            collection={isPriv}
+            setChosenFiles={setChosenFiles}
+          />
         ) : (
-          <label>
-            <input type="file" multiple onChange={handleChange} />
-            <span>+</span>
-          </label>
+          <div className="privUpload">
+            <label>
+              <input
+                type="file"
+                multiple
+                name="files"
+                onChange={handleChange}
+              />
+              <span>+</span>
+            </label>
+            <div className="privContainer">
+              <select name="isPrivate" id="isPrivate" onChange={privClick}>
+                <option disabled selected>
+                  Private?
+                </option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+          </div>
         )}
         <div className="selectedFile">{chosenFiles && chosenFiles.name}</div>
       </form>

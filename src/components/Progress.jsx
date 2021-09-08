@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
+import useFireStorage from "../hooks/useFireStorage";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import useFireStorage from "../hooks/useFireStorage";
 
-const Progress = ({ chosenFiles, setChosenFiles }) => {
-  const { url, completed } = useFireStorage(chosenFiles);
+const Progress = ({ chosenFiles, setChosenFiles, collection }) => {
+  const { url, completed } = useFireStorage(chosenFiles, collection);
   useEffect(() => {
     if (url) {
       setChosenFiles(null);
