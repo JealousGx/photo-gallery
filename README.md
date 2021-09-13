@@ -1,3 +1,5 @@
+![Live](https://raw.githubusercontent.com/JealousGx/photo-gallery/master/src/site-demo.png)
+
 # Personal Photo Gallery
 
 This is a personal photo gallery. You may use the code to help yourself in coding the website like this.
