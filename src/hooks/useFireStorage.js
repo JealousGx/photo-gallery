@@ -5,6 +5,7 @@ const useFireStorage = (selectedFile, collection) => {
   const [completed, setCompleted] = useState(0);
   const [url, setUrl] = useState(null);
 
+  /* eslint-disable */
   useEffect(() => {
     if (collection === false) {
       const collectionRef = gallFirestore.collection("personal");
@@ -70,4 +71,5 @@ const useFireStorage = (selectedFile, collection) => {
   return { completed, url };
 };
 
+/* eslint-enable */
 export default useFireStorage;
