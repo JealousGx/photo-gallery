@@ -1,0 +1,73 @@
+.blurContainer {
+  height: 100vh;
+  background: url(https://i.imgur.com/s1W83q8.png) no-repeat center center fixed;
+  background-size: 100%;
+  object-fit: cover;
+  filter: blur(6px);
+  opacity: 0.2;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
+.loginContainer .login {
+  width: 20rem;
+  height: 320px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 20vh;
+  background-color: rgba(26, 25, 25, 0.7);
+  box-shadow: 0px 0px 10px 1px black;
+  border-radius: 4px;
+  position: relative;
+}
+
+.login h3 {
+  text-align: center;
+  font-size: 25px;
+  margin: 0 auto;
+  color: rgb(21, 102, 224);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.login input {
+  width: 250px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.67);
+  box-shadow: 0px 0px 10px 1px rgb(0, 0, 0);
+  outline: none;
+  border: none;
+  text-indent: 10px;
+  font-size: 16px;
+}
+
+.login input:focus {
+  box-shadow: 0px 0px 1.3px 3.5px rgba(21, 102, 224, 0.721);
+}
+
+.login button {
+  height: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: transparent;
+  color: rgba(21, 102, 224, 0.721);
+  border: 1px solid rgba(202, 202, 202, 0.3);
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 1px black;
+}
+
+.login button:hover {
+  background-color: rgba(202, 202, 202, 0.1);
+}
+
+.login p {
+  width: 250px;
+  font-size: 14px;
+  font-weight: bold;
+  color: red;
+  margin-bottom: 20px;
+}
